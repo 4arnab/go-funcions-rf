@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+// custom types
+type transformFn func(int) int
+
 func main() {
 	numbers := []int{1, 2, 3, 4, 5, 6}
 	doubled := transformNumbers(&numbers, double)
@@ -9,7 +12,7 @@ func main() {
 	fmt.Println(doubled)
 }
 
-func transformNumbers(numbers *[]int, transform func(int) int) []int {
+func transformNumbers(numbers *[]int, transform transformFn) []int {
 	dNumbers := []int{}
 	for _, value := range *numbers {
 		dNumbers = append(dNumbers, transform(value))
@@ -23,5 +26,5 @@ func double(number int) int {
 }
 
 func triple(number int) int {
-	return number * 2
+	return number * 3
 }
