@@ -19,9 +19,25 @@ func main() {
 		return number * 2
 	})
 
-	double := createTransformer(10)(10)
+	// double := createTransformer(10)(10)
+	fmt.Println(transformed)
 
-	fmt.Println(transformed, double)
+	fmt.Println(factorial(5))
+}
+
+// factorial of 5 < 5 * 4 * 3 * 2 * 1>
+func factorial(number int) int {
+	if number == 0 {
+		return 1
+	}
+	return number * factorial(number-1)
+
+	// result := 1
+	// for i := 1; i <= number; i++ {
+	// 	result = result * i
+	// }
+
+	// return result
 }
 
 // closures <it returns a closure function or anonymous function>
