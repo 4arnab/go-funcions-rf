@@ -13,6 +13,22 @@ func main() {
 
 	fmt.Println(doubled)
 	fmt.Println(resultTwo)
+
+	// anonymous functions
+	transformed := transformNumberTwo(&numbers, func(number int) int {
+		return number * 2
+	})
+
+	fmt.Println(transformed)
+}
+
+func transformNumberTwo(number *[]int, fn func(int) int) []int {
+	dNumbers := make([]int, 30)
+	for _, value := range *number {
+		dNumbers = append(dNumbers, fn(value))
+	}
+
+	return dNumbers
 }
 
 // function that returns another functions
