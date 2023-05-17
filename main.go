@@ -21,8 +21,21 @@ func main() {
 
 	// double := createTransformer(10)(10)
 	fmt.Println(transformed)
-
 	fmt.Println(factorial(5))
+	fmt.Println(sumUp(1, 3, 4, 5, 5))
+	fmt.Println(sumUp(numbers...)) // splitting up array or slice into variadic values
+}
+
+// defer keyword
+
+// variadic function .<.. spread operator in js>
+func sumUp(numbers ...int) (sum int) {
+	// sum := 0
+	for _, value := range numbers {
+		sum += value
+	}
+
+	return
 }
 
 // factorial of 5 < 5 * 4 * 3 * 2 * 1>
