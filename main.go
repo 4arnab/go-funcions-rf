@@ -19,7 +19,16 @@ func main() {
 		return number * 2
 	})
 
-	fmt.Println(transformed)
+	double := createTransformer(10)(10)
+
+	fmt.Println(transformed, double)
+}
+
+// closures <it returns a closure function or anonymous function>
+func createTransformer(factor int) func(int) int {
+	return func(number int) int {
+		return number * factor
+	}
 }
 
 func transformNumberTwo(number *[]int, fn func(int) int) []int {
